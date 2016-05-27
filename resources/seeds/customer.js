@@ -1,7 +1,7 @@
-export default [
+module.exports = [
   {
-    id: 'c1',
-    parent_id: null,
+    // id: 'c1',
+    // parent_id: null,
     type: 'customer',
     first_name: null,
     last_name: null,
@@ -10,8 +10,8 @@ export default [
     role: null
   },
   {
-    id: 'c2',
-    parent_id: 'c1',
+    // id: 'c2',
+    // parent_id: null,
     type: 'branch',
     first_name: null,
     last_name: null,
@@ -20,8 +20,8 @@ export default [
     role: null
   },
   {
-    id: 'c3',
-    parent_id: 'c2',
+    // id: 'c3',
+    // parent_id: null,
     type: 'contact',
     first_name: 'James',
     last_name: 'Brown',
@@ -30,8 +30,8 @@ export default [
     role: null
   },
   {
-    id: 'c4',
-    parent_id: null,
+    // id: 'c4',
+    // parent_id: null,
     type: 'manufacturer',
     first_name: null,
     last_name: null,
@@ -40,7 +40,7 @@ export default [
     role: null
   },
   {
-    id: 'c5',
+    // id: 'c5',
     parent_id: null,
     type: 'vendor',
     first_name: null,

@@ -1,11 +1,16 @@
 'use strict'
 
-const Factory = use('Factory')
+const Address = use('App/Model/Address')
+// const Factory = use('Factory')
+const seeds = require('../../resources/seeds/Address')
 
 class AddressSeeder {
 
   * run () {
-    // run model/database factories here
+    for (let model of seeds) {
+      yield Address.create(model)
+    }
+    return
   }
 
 }

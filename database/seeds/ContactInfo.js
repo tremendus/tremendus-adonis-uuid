@@ -1,11 +1,16 @@
 'use strict'
 
-const Factory = use('Factory')
+const ContactInfo = use('App/Model/ContactInfo')
+// const Factory = use('Factory')
+const seeds = require('../../resources/seeds/ContactInfo')
 
 class ContactInfoSeeder {
 
   * run () {
-    // run model/database factories here
+    for (let model of seeds) {
+      yield ContactInfo.create(model)
+    }
+    return
   }
 
 }

@@ -1,7 +1,7 @@
-export default [
+module.exports = [
   {
-    id: 'a1',
-    customer_id: 'c1',
+    // id: 'a1',
+    // customer_id: 'c1',
     address: '123 9th Ave SE',
     address2: null,
     attention: null,
@@ -11,8 +11,8 @@ export default [
     country: 'CA'
   },
   {
-    id: 'a2',
-    customer_id: 'c2',
+    // id: 'a2',
+    // customer_id: 'c2',
     address: '5399 N153 Ave',
     address2: 'Site #C9',
     attention: null,
@@ -22,8 +22,8 @@ export default [
     country: 'CA'
   },
   {
-    id: 'a3',
-    customer_id: 'c3',
+    // id: 'a3',
+    // customer_id: 'c3',
     address: '5399 N153 Ave',
     address2: 'Site #C9, 3rd Floor, Office 62',
     attention: 'Molly Parker, Accounts Payable',
