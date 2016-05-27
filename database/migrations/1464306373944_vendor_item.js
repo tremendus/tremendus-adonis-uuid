@@ -6,8 +6,11 @@ class VendorItemSchema extends Schema {
 
   up () {
     this.create('vendor_items', (table) => {
-      table.increments()
-      table.timestamps()
+      table.uuid('id').first()
+      table.integer('vendor_id').references('id').inTable('customers')
+      table.integer('product_id').references('id').inTable('products')
+      table.integer('pricing_id').references('id').inTable('pricings')
+      table.string('part', 32).index()
     })
   }
 
