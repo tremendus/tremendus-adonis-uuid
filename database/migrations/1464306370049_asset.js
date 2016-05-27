@@ -6,11 +6,11 @@ class AssetSchema extends Schema {
 
   up () {
     this.create('assets', (table) => {
-      table.uuid('id').first()
-      table.integer('product_id').references('id').inTable('products')
-      table.integer('vendor_id').references('id').inTable('customers')
-      table.integer('meta').references('id').inTable('metas')
-      table.integer('location_id').index()
+      table.uuid('id').primary().first()
+      table.uuid('product_id').references('id').inTable('products')
+      table.uuid('vendor_id').references('id').inTable('customers')
+      table.uuid('meta_id').references('id').inTable('metas')
+      table.uuid('location_id').index()
       table.string('serial', 64).index()
       table.string('status', 16).index()
       table.string('availability', 16).index()
@@ -21,6 +21,9 @@ class AssetSchema extends Schema {
       table.string('po', 16)
       table.string('invoice', 16)
       table.decimal('cost', 6, 2)
+      table.timestamp('purchased_at')
+      table.timestamps()
+      table.timestamp('deleted_at')
     })
   }
 

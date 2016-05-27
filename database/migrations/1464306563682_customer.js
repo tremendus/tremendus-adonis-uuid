@@ -6,13 +6,16 @@ class CustomerSchema extends Schema {
 
   up () {
     this.create('customers', (table) => {
-      table.uuid('id').first()
-      table.integer('parent_id').references('id').inTable('customers')
+      table.uuid('id').primary().first()
+      table.uuid('parent_id').references('id').inTable('customers').index()
       table.string('type', 16).index()
       table.string('first_name', 32).index()
-      table.string('first_name', 64).index()
+      table.string('last_name', 64).index()
+      table.string('name', 96).index()
       table.string('external_id', 32).index()
       table.string('role')
+      table.timestamps()
+      table.timestamp('deleted_at')
     })
   }
 

@@ -1,11 +1,16 @@
 'use strict'
 
-const Factory = use('Factory')
+const User = use('App/Model/User')
+// const Factory = use('Factory')
+const seeds = require('../../resources/seeds/User')
 
 class UserSeeder {
 
   * run () {
-    // run model/database factories here
+    for (let model of seeds) {
+      yield User.create(model)
+    }
+    return
   }
 
 }
