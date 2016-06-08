@@ -62,16 +62,21 @@ class RestfulController {
       query.with(related)
     }
 
-    const orderBy = request.input('orderBy')
-    console.log('query():orderBy', orderBy)
-    if (typeof orderBy === 'string') {
-      query.orderBy = orderBy.split(' ')
-    } else if (typeof orderBy === 'object' && !Array.isArray(orderBy)) {
-      query.orderBy = [orderBy.column, orderBy.direction || 'asc']
+    let sort = request.input('sort') || request.input('orderBy')
+    console.log('query():sort', sort)
+    if (typeof sort === 'string') {
+      sort = sort.split(' ')
+    } else if (typeof sort === 'object' && !Array.isArray(sort)) {
+      sort = [sort.column, sort.direction || 'asc']
     }
-    if (Array.isArray(orderBy)) {
-      query.orderBy(orderBy[0], orderBy[1] || 'asc')
+    if (Array.isArray(sort)) {
+      query.orderBy(sort[0], sort[1] || 'asc')
     }
+
+    // clone the query chain to get count before limit and offset
+    const queryCount = query.clone()
+    const countResult = yield queryCount.count()
+    const total = countResult[0]['count(*)']
 
     const limit = request.input('limit')
     console.log('query():limit', limit)
@@ -79,15 +84,36 @@ class RestfulController {
       query.limit(limit)
     }
 
+    // hard offset
     const offset = request.input('offset')
     console.log('query():offset', offset)
     if (offset) {
       query.offset(offset)
+    } else {
+      // soft offset
+      const page = request.input('page')
+      if (limit) {
+        const _offset = limit * ((page || 1) - 1)
+        console.log('softOffset', _offset)
+        query.offset(_offset)
+      }
     }
 
+    // fetch results
     const results = yield query.fetch()
+    const collection = results.toJSON()
     // console.log('index():results', results)
-    response.json(results)
+
+    // formulate response
+    const data = {
+      [request.input('hash') || 'collection']: collection,
+      [request.input('meta') || 'paging.meta']: {
+        total,
+        count: collection.length,
+        pages: Math.ceil(total / limit)
+      }
+    }
+    response.json(data)
   }
 
   // readOne - GET /api/:resource/:id
