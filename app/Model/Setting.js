@@ -2,7 +2,7 @@
 
 const Lucid = use('Lucid')
 
-class Pricing extends Lucid {
+class Setting extends Lucid {
 
   static boot () {
     super.boot()
@@ -11,4 +11,4 @@ class Pricing extends Lucid {
 
 }
 
-module.exports = Pricing
+module.exports = Setting

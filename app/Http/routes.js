@@ -17,6 +17,14 @@
 
 const Route = use('Route')
 
-Route.on('/').render('welcome')
-Route.get('/develop', 'DevelopController.index').middleware('auth')
-// Route.get('/develop', 'DevelopController.index')
+// Route.on('/').render('welcome')
+// Route.get('/develop', 'DevelopController.index').middleware('auth')
+Route.get('/develop', 'DevelopController.index')
+
+// Auth
+Route.post('/users/authenticate', 'UsersController.authenticate')
+
+// API
+Route.get('/api/parameters', 'ApiController.parameters')
+Route.post('/api/:resource/query', 'ApiController.query')
+Route.resource('/api/:resource', 'ApiController')

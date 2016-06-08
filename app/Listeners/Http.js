@@ -21,6 +21,7 @@ Http.handleError = function * (error, request, response) {
     )
     ouch.handleException(error, request.request, response.response, (output) => {
       console.log('Handled error gracefully')
+      console.log('Handled error:', error)
     })
     return
   }
