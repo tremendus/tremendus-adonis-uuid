@@ -18,6 +18,7 @@
     "adonis-framework": "git+https://github.com/adonisjs/adonis-framework.git#develop",
     "adonis-lucid": "git+https://github.com/adonisjs/adonis-lucid.git#feature-version-3",
     "adonis-middleware": "git+https://github.com/adonisjs/adonis-middleware.git#develop",
+    "i": "^0.3.5",
     "sqlite3": "^3.1.4",
     "uuid": "^2.0.2",
     "youch": "^1.0.0"

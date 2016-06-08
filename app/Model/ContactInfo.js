@@ -9,6 +9,10 @@ class ContactInfo extends Lucid {
     this.addHook('beforeCreate', 'Common.uuid')
   }
 
+  customer () {
+    return this.belongsTo('App/Model/Customer')
+  }
+
 }
 
 module.exports = ContactInfo
