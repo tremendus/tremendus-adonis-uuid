@@ -5,16 +5,15 @@ const Schema = use('Schema')
 class SettingSchema extends Schema {
 
   up () {
-    this.table('settings', (table) => {
-      table.uuid('id').notNullable().primary().first()
-      // alter setting table
+    this.create('settings', (table) => {
+      table.increments()
+      table.uuid('uuid').notNullable()
+      table.timestamps()
     })
   }
 
   down () {
-    this.table('settings', (table) => {
-      // opposite of up goes here
-    })
+    this.drop('settings')
   }
 
 }

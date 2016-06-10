@@ -6,8 +6,8 @@ class MetaSchema extends Schema {
 
   up () {
     this.create('metas', (table) => {
-      table.uuid('id').notNullable().primary().first()
       table.increments()
+      table.uuid('uuid').notNullable()
       table.timestamps()
     })
   }

@@ -6,8 +6,8 @@ class OrderSchema extends Schema {
 
   up () {
     this.create('orders', (table) => {
-      table.uuid('id').notNullable().primary().first()
       table.increments()
+      table.uuid('uuid').notNullable()
       table.timestamps()
     })
   }
