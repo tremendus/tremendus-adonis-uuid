@@ -260,7 +260,7 @@
         <attribute name="redirectauthorization" type="bool">0</attribute>
         <attribute name="method" type="string">POST</attribute>
         <attribute name="followredirects" type="bool">0</attribute>
-        <attribute name="body" type="string">[{"data":{"json":"{\\"where\\":{\\"id\\":\\"935e2735-9014-4e81-94c0-6f6ae4ac2a4b\\"},\\"related\\":[\\/*\\"contact_infos\\",\\"addresses\\",\\"underwriting\\",\\"underwritings\\",*\\/\\"parent\\",\\"children\\"]\\/*,\\"orderBy\\":{\\"column\\":\\"id\\",\\"direction\\":\\"desc\\"},\\"limit\\":4,\\"offset\\":\\"2\\",\\"filters\\":[{\\"method\\":\\"whereNotIn\\",\\"filter\\":[\\"status\\",[\\"Cancelled\\",\\"Sold\\",\\"Expired\\",\\"Updated\\",\\"Closed\\",\\"Watch\\",\\"Withdrawn\\"]]}]*\\/}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
+        <attribute name="body" type="string">[{"data":{"json":"{\\/*\\"where\\":{\\"id\\":\\"935e2735-9014-4e81-94c0-6f6ae4ac2a4b\\"},\\"related\\":[\\/*\\"contact_infos\\",\\"addresses\\",\\"underwriting\\",\\"underwritings\\",*\\/\\"parent\\",\\"children\\"],\\"orderBy\\":{\\"column\\":\\"id\\",\\"direction\\":\\"desc\\"},\\"limit\\":4,\\"offset\\":\\"2\\",*\\/\\"filters\\":[\\/*{\\"method\\":\\"whereNotIn\\",\\"filter\\":[\\"status\\",[\\"Cancelled\\",\\"Sold\\",\\"Expired\\",\\"Updated\\",\\"Closed\\",\\"Watch\\",\\"Withdrawn\\"]]},*\\/{\\"method\\":\\"where\\",\\"filter\\":[\\"name\\",\\"like\\",\\"%dr%\\"]}]}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
         <attribute name="order" type="int64">5</attribute>
         <attribute name="name" type="string">index : api/dynamic</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z137"></relationship>

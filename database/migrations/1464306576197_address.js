@@ -6,7 +6,7 @@ class AddressSchema extends Schema {
 
   up () {
     this.create('addresses', (table) => {
-      table.uuid('id').primary().first()
+      table.uuid('id').notNullable().primary().first()
       table.uuid('customer_id').references('id').inTable('customers')
       table.string('address', 128).index()
       table.string('address2', 128).index()

@@ -6,6 +6,7 @@ class SettingSchema extends Schema {
 
   up () {
     this.table('settings', (table) => {
+      table.uuid('id').notNullable().primary().first()
       // alter setting table
     })
   }
