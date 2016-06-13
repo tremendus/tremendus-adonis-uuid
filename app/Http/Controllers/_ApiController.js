@@ -170,6 +170,7 @@ class RestfulController {
   * destroy (request, response) {
     const model = this.resource(request.param('resource'))
     const record = yield model.find(request.param('id'))
+    console.log('destroy()record', record)
     const result = yield record.delete()
     response.json(result)
   }

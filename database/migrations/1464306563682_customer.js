@@ -7,7 +7,7 @@ class CustomerSchema extends Schema {
   up () {
     this.create('customers', (table) => {
       table.increments()
-      table.uuid('uuid').notNullable()
+      table.uuid('uuid').notNullable().unique().index()
       table.uuid('parent_id').references('id').inTable('customers').index()
       table.string('type', 16).index()
       table.string('first_name', 32).index()

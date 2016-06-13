@@ -7,7 +7,7 @@ class AssetSchema extends Schema {
   up () {
     this.create('assets', (table) => {
       table.increments()
-      table.uuid('uuid').notNullable()
+      table.uuid('uuid').notNullable().unique().index()
       table.uuid('product_id').references('id').inTable('products')
       table.uuid('vendor_id').references('id').inTable('customers')
       table.uuid('meta_id').references('id').inTable('metas')

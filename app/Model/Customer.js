@@ -9,6 +9,10 @@ class Customer extends Lucid {
     this.addHook('beforeCreate', 'Common.uuid')
   }
 
+  static get deleteTimestamp () {
+    return 'deleted_at'
+  }
+
   meta () {
     return this.hasOne('App/Model/Meta')
   }

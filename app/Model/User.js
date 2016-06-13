@@ -8,6 +8,11 @@ class User extends Lucid {
     super.boot()
     this.addHook('beforeCreate', 'Common.uuid')
     this.addHook('beforeCreate', 'Common.encryptPassword')
+    this.addHook('beforeUpdate', 'Common.encryptPassword')
+  }
+
+  static get hidden () {
+    return ['password']
   }
 
 }

@@ -7,7 +7,7 @@ class PricingSchema extends Schema {
   up () {
     this.create('pricings', (table) => {
       table.increments()
-      table.uuid('uuid').notNullable()
+      table.uuid('uuid').notNullable().unique().index()
       table.uuid('product_id').references('id').inTable('products')
       table.uuid('currency').index()
       table.uuid('tier').index()

@@ -7,7 +7,7 @@ class SettingSchema extends Schema {
   up () {
     this.create('settings', (table) => {
       table.increments()
-      table.uuid('uuid').notNullable()
+      table.uuid('uuid').notNullable().unique().index()
       table.timestamps()
     })
   }

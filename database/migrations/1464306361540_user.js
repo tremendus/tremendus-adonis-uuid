@@ -6,7 +6,7 @@ class UserSchema extends Schema {
   up () {
     this.create('users', (table) => {
       table.increments()
-      table.uuid('uuid').notNullable()
+      table.uuid('uuid').notNullable().unique().index()
       table.uuid('meta_id').references('id').inTable('metas')
       table.string('first_name', 64).index()
       table.string('last_name', 64).index()
