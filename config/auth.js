@@ -17,7 +17,7 @@ module.exports = {
   | Available Serializers - Lucid, Database
   |
   */
-  authenticator: 'api',
+  authenticator: 'jwt',
 
   /*
   |--------------------------------------------------------------------------
