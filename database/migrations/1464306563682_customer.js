@@ -9,6 +9,8 @@ class CustomerSchema extends Schema {
       table.increments()
       table.uuid('uuid').notNullable().unique().index()
       table.uuid('parent_id').references('id').inTable('customers').index()
+      // table.uuid('email_id').references('id').inTable('contact_infos').index()
+      // table.uuid('phone_id').references('id').inTable('contact_infos').index()
       table.string('type', 16).index()
       table.string('first_name', 32).index()
       table.string('last_name', 64).index()

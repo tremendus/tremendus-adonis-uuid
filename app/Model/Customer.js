@@ -37,6 +37,14 @@ class Customer extends Lucid {
     return this.hasMany('App/Model/Customer', 'id', 'parent_id')
   }
 
+  email () {
+    return this.hasOne('App/Model/ContactInfo').where({ type: 'email', is_primary: 1 })
+  }
+
+  phone () {
+    return this.hasOne('App/Model/ContactInfo').where({ type: 'phone', is_primary: 1 })
+  }
+
 }
 
 module.exports = Customer

@@ -40,7 +40,11 @@ class RestfulController {
         where = [where]
       }
       where.map((q) => {
-        query.where(q)
+        console.log('where.map', q)
+        // filter out type = 0 for selects to avoid complex logic in client
+        if (!q.type || q.type && String(q.type) !== '0') {
+          query.where(q)
+        }
       })
     }
 
@@ -52,12 +56,21 @@ class RestfulController {
         // let f = q.filter
         // query[q.method](...f)
         // workaround, omit the option to have operator:
+        // duplicated below
         if (q.filter.length === 2) {
           query[q.method](q.filter[0], q.filter[1])
         } else if (q.filter.length === 3) {
           query[q.method](q.filter[0], q.filter[1], q.filter[2])
         }
       })
+    } else if (typeof filters === 'object') {
+      for (let field in filters) {
+        let q = filters[field]
+        // duplicated above
+        if (q.method && q.value) {
+          query[q.method](field, q.operator || '=', q.value)
+        }
+      }
     }
 
     const related = request.input('related')
